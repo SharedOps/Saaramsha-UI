@@ -10,8 +10,8 @@ export class Constants {
 
  //Swal Messages
 
-public swal_success: string="Success";
-public swal_errror: string="Error";
+public swal_success: string="success";
+public swal_errror: string="error";
 
 public swal_User_Success_Msg: string="User added successfully";
 

@@ -1,4 +1,40 @@
 /* You can add global styles to this file, and also import other style files */
-@import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
+@import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+@import './assets/css/sb-admin.min.css';
 
+nav{
+    background-color: #3f51b5;
+}
 
+.mainContainer{
+    margin-top: 60px;
+}
+.card-header{
+    background-color: #3f51b5;
+    color: #fff;
+}
+
+label{
+    color:rgba(0,0,0,.54);   
+}
+
+.SaaramshaRequired{
+    color:red;
+}
+
+.usertbl thead th{
+    background-color: #3f51b5 !important;
+    border: none
+}
+
+.usertbl{
+margin-top: 20px;
+width: 100% !important;
+table-layout: fixed;
+}
+
+.usertbl tbody td {
+    white-space: normal !important;
+    word-wrap: break-word;
+    padding: .35rem !important;
+  }

@@ -5,37 +5,89 @@
         Registration
       </div>
       <div class="card-body">
-        <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()" novalidate class="form-horizontal row-border">
-            <div class="form-group">
-                <label for="FirstName">First Name</label>
-                <input type="text" class="form-control" id="FirstName"  formControlName="FirstName" autocomplete="off" minlength="50">
-                <div class="invalid-feedback" *ngIf="registrationForm.controls['FirstName'].touched && registrationForm.controls['FirstName'].valid">
-                    <span *ngIf="registrationForm.controls['FirstName'].hasError('required')" class="SaaramshaRequired">
-                      Please enter your first name.
-                    </span>
-                </div>
+        <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()" class="form-horizontal row-border">
+          <div class="form-group">
+            <label for="FirstName">First Name</label>
+            <input type="text" class="form-control" id="FirstName" formControlName="FirstName" autocomplete="off"
+              minlength="3" maxlength="50">
+            <div *ngIf="registrationForm.controls['FirstName'].touched && !registrationForm.controls['FirstName'].valid">
+              <span *ngIf="registrationForm.controls['FirstName'].hasError('required')" class="SaaramshaRequired">
+                Please enter your first name .
+              </span>
             </div>
+          </div>
 
-            <div class="form-group">
-                <label for="LastName">Last Name</label>
-                <input type="text" class="form-control" id="LastName"  formControlName="LastName" autocomplete="off" minlength="50">
+          <div class="form-group">
+            <label for="LastName">Last Name</label>
+            <input type="text" class="form-control" id="LastName" formControlName="LastName" autocomplete="off"
+              minlength="3" maxlength="50">
+            <div *ngIf="registrationForm.controls['LastName'].touched && !registrationForm.controls['LastName'].valid">
+              <span *ngIf="registrationForm.controls['LastName'].hasError('required')" class="SaaramshaRequired">
+                Please enter your last name.
+              </span>
             </div>
+          </div>
 
-            <div class="form-group">
-                <label for="Email">Email</label>
-                <input type="email" class="form-control" id="Email"  formControlName="Email" autocomplete="off" minlength="150">
+          <div class="form-group">
+            <label for="Email">Email</label>
+            <input type="text" class="form-control" id="Email" formControlName="Email" autocomplete="off">
+            <div *ngIf="registrationForm.controls['Email'].touched && !registrationForm.controls['Email'].valid">
+              <span *ngIf="registrationForm.controls['Email'].hasError('required')" class="SaaramshaRequired">
+                Please enter your email address.
+              </span>
             </div>
-            <div class="form-group">
-                <button class="btn btn-primary" type="submit" [disabled]="registrationForm.valid">Save</button>
-            </div>            
+          </div>
+
+          <div class="form-group">
+            <button class="btn btn-primary" type="submit" [disabled]="!registrationForm.valid">Save</button>
+          </div>
+
+
+
         </form>
+
 
       </div>
     </div>
+
+
   </div>
-  <div class="col-md-8"></div>
+  <div class="col-md-4"><p>{{registrationForm.value | json}}</p></div>
 </div>
 
-<p>{{registrationForm.value | json}}</p>
 
 
+<div class="row">
+  <div class="col-md-8">
+    <div class="card">
+      <div class="card-header">
+        Users View
+      </div>
+      <div class="card-body">
+        <table class="table usertbl table-striped">
+          <thead class="thead-dark">
+            <th>FirstName</th>
+            <th>LastName</th>
+            <th>Email</th>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of userObj" scope="row">
+              <td>
+                {{item.FirstName}}
+              </td>
+              <td>
+                {{item.LastName}}
+              </td>
+              <td>
+                {{item.Email}}
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="col-md-4"></div>
+</div>
